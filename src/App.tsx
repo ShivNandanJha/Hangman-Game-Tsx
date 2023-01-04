@@ -3,6 +3,7 @@ import HangmanDrawing from "./HangmanDrawing"
 import HangmanWord from "./HangmanWord"
 import KeyBoard from "./KeyBoard"
 import words from "./Wordlist.json"
+import './App.css'
 
 function getWord() {
   return words[Math.floor(Math.random() * words.length)]
@@ -64,7 +65,7 @@ function App() {
   }, [])
   return (
    <>
-      <div style={{
+      <div className="App" style={{
         maxWidth: '900px',
        
         display: 'flex',
@@ -76,7 +77,8 @@ function App() {
          <div style={{ fontSize: "2rem", textAlign: "center" }}>
         {isWinner && "Winner! - Refresh to try again"}
         {isLoser && "Nice Try - Refresh to try again"}
-      </div>
+        </div>
+        
         <HangmanDrawing numberOfGuesses={incorrectLetters.length}  />
         <HangmanWord
         reveal={isLoser}
